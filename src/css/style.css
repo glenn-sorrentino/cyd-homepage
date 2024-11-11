@@ -2,15 +2,16 @@
 
   /*BRAND COLORS*/
 
-  --color-brand: #333; /*Primary Brand Color*/
+  --color-brand: darkblue; /*Primary Brand Color*/
   --color-brand-bg: #F1F1F1; /*Brand Tint*/
   --color-bg: #FAFAFA;
-  --color-brand-dark: #222; /*Headings*/
+  --color-brand-dark: darkblue; /*Headings*/
   --color-brand-gradient: linear-gradient(135deg, rgba(71,71,71,1) 0%, rgba(91,91,91,1) 100%);
 
   /*BUTTONS AND BADGES*/
 
   --radius-round: 50vh;
+  --radius-soft: 1rem;
   --radius-sharp: calc(var(--radius-round) * .005); /*1 = round, .0005 almost sharp*/
   --shadow-hard: 0px 2px 0px 0px rgba(0,0,0,.15); /*Button Hover*/
   --shadow-inset: inset 0 2px 0 rgba(0,0,0,0.15); /*Button Press*/
@@ -56,7 +57,7 @@
 /*Depending on the shape of your buttons, if using the island header, you may want to mirror their style.*/
 
 header.island {
-  border-radius: var(--radius-sharp);
+  border-radius: var(--radius-soft);
 }
 
 /*ICONS*/
@@ -266,7 +267,9 @@ header {
     top: 0;
     right: 0;
     width: 100%;
-    background-color: white;
+    background-color: rgba(255,255,255,0.5);
+    --webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -280,6 +283,14 @@ header {
 header h1 {
     margin: 0;
     font-size: var(--font-size-logo);
+    display: flex;
+    flex-direction: row;
+    gap: .425rem;
+    align-items: center;
+}
+
+header h1 img {
+  height: 1.425rem;
 }
 
 header nav {
@@ -359,6 +370,7 @@ button,
     color: white;
     padding: 0 1rem;
     margin: .5rem 0;
+    border-radius: calc(var(--radius-soft) * .75);
 }
 
 header .btn {
@@ -826,6 +838,7 @@ header nav .primaryBtn {
   background-size: cover !important;
   overflow: hidden;
   display: flex;
+  background-color: #DEEFF5;
 }
 
 .intro .wrapper {
@@ -849,8 +862,8 @@ header nav .primaryBtn {
   font-size: var(--font-size-base);
 }
 
-.intro img {
-  max-width: 1024px;
+.intro img:not(.intro-icon) {
+  max-width: 840px;
   width: 100%;
   display: flex;
   height: auto;
@@ -859,6 +872,11 @@ header nav .primaryBtn {
   top: 50%;
   transform: translateY(-50%);
   margin-top: 1.5rem;
+}
+
+.intro-icon {
+  width: 5rem;
+  margin-bottom: .75rem;
 }
 
 /*BADGE*/
